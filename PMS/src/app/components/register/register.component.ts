@@ -1,28 +1,24 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { NavbarComponent } from '../navbar/navbar.component';
-import { ReactiveFormsModule, Validators, FormGroup, FormBuilder} from '@angular/forms';
+import { FormsModule } from '@angular/forms';
+import { RouterLink } from '@angular/router';
+import { registerDetails } from '../../interfaces/register.interfaces';
 
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [ReactiveFormsModule, CommonModule, NavbarComponent],
+  imports: [ CommonModule, NavbarComponent, FormsModule, RouterLink],
   templateUrl: './register.component.html',
   styleUrl: './register.component.css'
 })
 export class RegisterComponent {
 
-  registerForm! : FormGroup
+  errorMsg!:string
+  successMsg!:string
 
-  constructor( private fb:FormBuilder) {
-
-    this.registerForm = this.fb.group({
-      name: ['', [Validators.required]],
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required]]
-    })
+  register(details:registerDetails){
+    console.log(details);
   }
-
-  registerUser(){console.log(this.registerForm.value)}
 
 }

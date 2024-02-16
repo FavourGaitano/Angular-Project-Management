@@ -1,31 +1,41 @@
 <app-navbar></app-navbar>
 <div class="backgroundImage">
-  <div class="register">
-      <form [formGroup]="registerForm" (ngSubmit)="registerUser()">
-          <div><h4>Create Your PMS Account</h4></div>
+
+  <div class="main">
+      <form #registerForm="ngForm" (ngSubmit)="register(registerForm.value)">
+          <h1>Create Your PMS Account</h1>
+
+
+
+          <div *ngIf>{{errorMsg}}</div>
+          <div *ngIf>{{successMsg}}</div>
+
           <div>
-              <label>Full name</label>
-              <input type="text" formControlName="name">
-              <div class="error-message" *ngIf="registerForm.get('name')?.invalid && registerForm.get('name')?.touched ">Name is required</div>
-          </div>
+            <label>Full Name</label>
+            <input type="name" name="name" ngModel placeholder="Jane Doe">
+        </div>
+
           <div>
-              <label>Email</label>
-              <input style ="width: 500;"type="email" formControlName="email">
-              <div class="error-message" *ngIf="registerForm.get('email')?.invalid && registerForm.get('email')?.touched && !registerForm.get('email')?.dirty">Email is required</div>
-              <div class="error-message" *ngIf="registerForm.get('email')?.invalid && registerForm.get('email')?.touched && registerForm.get('email')?.dirty">Invalid format</div>
+              <label>Email address</label>
+              <input type="email" name="email" ngModel placeholder="janedoe@yopmail.com">
           </div>
 
           <div>
               <label>Password</label>
-              <input type="password" formControlName="password">
-              <div class="error-message" *ngIf="registerForm.get('password')?.invalid && registerForm.get('password')?.touched">Password is required</div>
-              <div class="error-message" *ngIf="registerForm.get('password')?.invalid && registerForm.get('password')?.touched && !registerForm.get('password')?.dirty">Must have letters </div>
+              <input type="password" name="password" ngModel placeholder="*********">
           </div>
+
           <div>
-              <input type="submit" [disabled]="registerForm.invalid" value="Create Account">
-              <a>Proceed to login?</a>
-          </div>
+            <input type="submit" [disabled]="registerForm.invalid" value="Create Account">
+            <a>Proceed to login?</a>
+        </div>
+
+          <!-- /
+          <div>
+              <a routerLink="/login"> Proceed to Log In?</a>
+          </div> -->
       </form>
   </div>
 </div>
+
 

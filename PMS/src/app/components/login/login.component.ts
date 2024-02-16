@@ -1,24 +1,29 @@
 import { Component } from '@angular/core';
 import { NavbarComponent } from '../navbar/navbar.component';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-import { RouterLink } from '@angular/router';
-import { loginDetails } from '../../interfaces/login.interfaces';
+import { ReactiveFormsModule, Validators, FormGroup, FormBuilder} from '@angular/forms';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [NavbarComponent, CommonModule, FormsModule, RouterLink],
+  imports: [NavbarComponent, CommonModule, ReactiveFormsModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
 export class LoginComponent {
 
-    errorMsg!:string
-    successMsg!:string
+  loginForm! : FormGroup
 
-    login(details:loginDetails){
-      console.log(details);
-    }
+  constructor( private fb:FormBuilder) {
+
+    this.loginForm = this.fb.group({
+      // name: ['', [Validators.required]],
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required]]
+    })
+  }
+
+  loginUser(){console.log(this.loginForm.value)}
+
 
 }

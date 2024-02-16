@@ -12,73 +12,84 @@
   background-color: #f9f9f9
 
 }
-.register {
-  background: rgba(255, 255, 255, 0.6);
-  padding: 40px;
+
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.6);
+  /* padding-right: 20px; */
+}
+
+.main form {
+  background-color: rgba(255, 255, 255, 0.6);
+  /* padding: 40px; */
   border-radius: 10px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
   width: 100%;
   max-width: 400px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding-top:40px;
+  padding-bottom: 40px;
+  padding-right: 60px;
+  padding-left: 40px;
 }
 
-.register h4 {
-  margin-bottom: 1rem;
+.main form h1 {
   text-align: center;
   color: #333;
-  font-size: 1.25rem;
+  margin-bottom: 20px;
 }
 
-.register form {
-  display: flex;
-  flex-direction: column;
+.main form div {
+  margin-bottom: 20px;
 }
 
-.register label {
-  margin-bottom: 0.5rem;
-  color: #333;
-  margin-right:5px;
+.main form label {
+  display: block;
+  margin-bottom: 5px;
 }
 
-.register input[type="text"],
-.register input[type="email"],
-.register input[type="password"] {
+.main form input[type="name"],
+.main form input[type="email"],
+.main form input[type="password"] {
+  width: 100%;
   padding: 10px;
-  margin-bottom: 1rem;
+  margin-bottom: 10px;
   border: 1px solid #ccc;
-  border-radius: 4px;
+  border-radius: 5px;
 }
 
-.register input[type="submit"] {
+.main form input[type="submit"] {
+  width: 100%;
+  padding: 10px;
   background-color: #007bff;
   color: white;
-  padding: 10px;
   border: none;
-  border-radius: 4px;
+  border-radius: 5px;
   cursor: pointer;
-  margin-top: 0.5rem;
-  margin-left:20px;
+  margin-bottom: 10px;
 }
 
-.register input[type="submit"]:hover {
+.main form input[type="submit"]:hover {
   background-color: #0056b3;
-  /* width:100%; */
 }
 
-.register a {
+.main form a {
   display: block;
   text-align: center;
   color: #007bff;
   text-decoration: none;
-  margin-top: 1rem;
+  margin-top: 10px;
 }
 
-.register div {
-  position: relative;
+.main form a:hover {
+  color: #0056b3;
 }
 
-.error-message {
-  font-size: 0.75rem;
-  color: #dc3545;
-  /* margin-top: 3px; */
-  margin-bottom: 10px;
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .main form {
+    width: 90%; /* Make the form width responsive */
+    padding: 20px; /* Adjust padding for smaller screens */
+  }
 }
