@@ -1,0 +1,34 @@
+<app-navbar></app-navbar>
+
+<div class="backgroundImage">
+
+  <div class="main">
+      <form #loginForm="ngForm" (ngSubmit)="login(loginForm.value)">
+          <h1>Log In Here!</h1>
+
+
+
+          <div *ngIf>{{errorMsg}}</div>
+          <div *ngIf>{{successMsg}}</div>
+
+          <div>
+              <label>Email address</label>
+              <input type="email" name="email" ngModel placeholder="janedoe@yopmail.com">
+          </div>
+
+          <div>
+              <label>Password</label>
+              <input type="password" name="password" ngModel placeholder="*********">
+          </div>
+
+          <div>
+              <input type="submit" value="Login">
+              <a>Forgot Password?</a>
+          </div>
+          <div>
+              <a routerLink="/register">Sign Up?</a>
+          </div>
+      </form>
+  </div>
+</div>
+

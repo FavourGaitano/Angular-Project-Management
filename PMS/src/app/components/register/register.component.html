@@ -1,0 +1,31 @@
+<app-navbar></app-navbar>
+<div class="backgroundImage">
+  <div class="register">
+      <form [formGroup]="registerForm" (ngSubmit)="registerUser()">
+          <div><h4>Create Your PMS Account</h4></div>
+          <div>
+              <label>Full name</label>
+              <input type="text" formControlName="name">
+              <div class="error-message" *ngIf="registerForm.get('name')?.invalid && registerForm.get('name')?.touched ">Name is required</div>
+          </div>
+          <div>
+              <label>Email</label>
+              <input style ="width: 500;"type="email" formControlName="email">
+              <div class="error-message" *ngIf="registerForm.get('email')?.invalid && registerForm.get('email')?.touched && !registerForm.get('email')?.dirty">Email is required</div>
+              <div class="error-message" *ngIf="registerForm.get('email')?.invalid && registerForm.get('email')?.touched && registerForm.get('email')?.dirty">Invalid format</div>
+          </div>
+
+          <div>
+              <label>Password</label>
+              <input type="password" formControlName="password">
+              <div class="error-message" *ngIf="registerForm.get('password')?.invalid && registerForm.get('password')?.touched">Password is required</div>
+              <div class="error-message" *ngIf="registerForm.get('password')?.invalid && registerForm.get('password')?.touched && !registerForm.get('password')?.dirty">Must have letters </div>
+          </div>
+          <div>
+              <input type="submit" [disabled]="registerForm.invalid" value="Create Account">
+              <a>Proceed to login?</a>
+          </div>
+      </form>
+  </div>
+</div>
+
