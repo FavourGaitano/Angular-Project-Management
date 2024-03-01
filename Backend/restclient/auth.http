@@ -1,0 +1,23 @@
+POST http://localhost:4001/auth
+Content-Type: application/json
+
+{
+    "email": "favourgaitano@gmail.com",
+    "password": "123456"
+
+}
+
+####
+PUT http://localhost:3001/auth/reset_pwd
+Content-Type: application/json
+
+{
+    "email": "favourgaitano@gmail.com",
+    "password": "123456"
+
+}
+
+####
+GET http://localhost:3001/auth/checkdetails
+Content-Type: application/json
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijg5MGI3ZTJiLTA4MDYtNDAwNi1iYTJhLWQ3Mjk0YjE4NGM0MiIsImVtYWlsIjoiZmF2b3VyZ2FpdGFub0BnbWFpbC5jb20iLCJyb2xlIjoidXNlciIsImlhdCI6MTcwOTMwMjc3MCwiZXhwIjoxNzA5NTYxOTcwfQ.GjAwg04DjWCK0FmwrJAL-afo7bXzMUHCBVkpDlmNQnI

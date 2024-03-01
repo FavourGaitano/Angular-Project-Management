@@ -3,6 +3,7 @@
 
   <div class="main">
       <form #registerForm="ngForm" (ngSubmit)="register(registerForm.value)">
+          <div *ngIf="visible2" class="text-center text-sm text-green-500 bg-green-100 py-4 my-4 rounded-md">{{successMsg}}</div>
           <h1>Create Your PMS Account</h1>
 
 
@@ -10,7 +11,7 @@
           <div *ngIf>{{errorMsg}}</div>
           <div *ngIf>{{successMsg}}</div>
 
-          <div>
+        <div>
             <label>Full Name</label>
             <input type="name" name="name" ngModel placeholder="Jane Doe">
         </div>
@@ -30,10 +31,9 @@
             <a>Proceed to login?</a>
         </div>
 
-          <!-- /
-          <div>
-              <a routerLink="/login"> Proceed to Log In?</a>
-          </div> -->
+        <div *ngIf="visible" class="text-center text-sm text-red-500 bg-red-100 py-4 my-4 rounded-md">{{errorMsg}}</div>
+
+
       </form>
   </div>
 </div>

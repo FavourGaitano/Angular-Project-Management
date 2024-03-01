@@ -2,6 +2,7 @@
 <div class="backgroundImage">
   <div class="login">
       <form [formGroup]="loginForm" (ngSubmit)="loginUser()">
+        <div *ngIf="successMessage" class="success-message">{{ successMessage }}</div>
           <div><h4>Log In Here!</h4></div>
 
           <div>
@@ -21,6 +22,8 @@
               <input type="submit" [disabled]="loginForm.invalid" value="Login">
               <!-- <a>Proceed to login?</a> -->
           </div>
+
+          <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
       </form>
   </div>
 </div>
