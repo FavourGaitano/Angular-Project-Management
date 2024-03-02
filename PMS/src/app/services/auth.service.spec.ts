@@ -3,6 +3,7 @@ import { TestBed } from '@angular/core/testing';
 import { AuthService } from './auth.service';
 import {HttpClientTestingModule, HttpTestingController} from '@angular/common/http/testing'
 import { registerDetails } from '../interfaces/register.interfaces';
+import { loginDetails } from '../interfaces/login.interfaces';
 
 
 
@@ -40,5 +41,21 @@ describe('AuthService', () => {
     expect(mockReq.request.method).toEqual('POST')
     expect(mockReq.request.body).toBe(mockUser)
     mockReq.flush({"message": "Account created successfully"})
+  })
+  it('it logs a user', ()=>{
+    let mockUserlogins: loginDetails = {
+      email: "user@yopmail.com",
+      password: "user"
+
+    }
+
+    service.loginUser(mockUserlogins).subscribe(res=>{
+      expect(res.message).toEqual("Login successfully Redirecting .....")
+    })
+
+    const mockReq = testingController.expectOne('http://localhost:4100/users/login');
+    expect(mockReq.request.method).toEqual('POST')
+    expect(mockReq.request.body).toBe(mockUserlogins)
+    mockReq.flush({"message": "Login successfully Redirecting ....."})
   })
 });
