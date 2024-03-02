@@ -35,3 +35,12 @@
 //     }
 //   }
 // }
+
+// Cypress.Commands.add('loginUser', ()=>{
+//   cy.visit('/')
+//   cy.get('[data-cy="login-link"]').click()
+
+//   cy.get('.email').type('favour@yopmail.com')
+//   cy.get('.password').type('admin')
+//   cy.get('.loginbtn').click()
+// })
